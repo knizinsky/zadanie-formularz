@@ -1,0 +1,64 @@
+﻿@model Formularz.Models.Dane
+
+@{
+    ViewData["Title"] = "Formularz Rejestracyjny";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post, new { @class = "form" }))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Imie, "Imię:")
+        @Html.TextBoxFor(a => a.Imie, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Imie, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Nazwisko, "Nazwisko:")
+        @Html.TextBoxFor(a => a.Nazwisko, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Nazwisko, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Email, "Adres e-mail:")
+        @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Haslo, "Hasło:")
+        @Html.PasswordFor(a => a.Haslo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Haslo, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.PotwierdzenieHasla, "Potwierdź hasło:")
+        @Html.PasswordFor(a => a.PotwierdzenieHasla, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.PotwierdzenieHasla, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.NrTelefonu, "Nr telefonu:")
+        @Html.TextBoxFor(a => a.NrTelefonu, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.NrTelefonu, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Wiek, "Wiek:")
+        @Html.TextBoxFor(a => a.Wiek, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Wiek, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Miasto, "Miasto:")
+        @Html.DropDownListFor(a => a.Miasto, new SelectList(new[] { "Miasto 1", "Miasto 2", "Miasto 3", "Miasto 4", "Miasto 5" }), "Wybierz miasto", new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Miasto, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zarejestruj</button>
+    <input type="reset" value="Wyczyść" class="btn btn-secondary" />
+}
+
